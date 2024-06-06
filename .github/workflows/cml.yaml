@@ -2,6 +2,9 @@ name: ML Workflow
 
 on: [push]
 
+permissions:
+  contents: write  # Grants write access to the repository contents
+
 jobs:
   run:
     runs-on: ubuntu-latest
@@ -23,14 +26,14 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Train modelz
+      - name: Train model
         run: |
           python model_train.py
 
       - name: Write CML report
         env:
-            REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
         run: |
           echo "## Training Results" > report.md
           cat results.txt >> report.md
-          cml comment create report.md
+          npx cml comment create report.md --token=$REPO_TOKEN
