@@ -36,7 +36,7 @@ jobs:
 
       - name: Write CML report
         env:
-          my_own_token_01: ${{ secrets.RAY_TOKEN }}
+          my_own_token_01: ${{ github.token }}
         run: |
           echo "## Training Results" > report.md
           cat results.txt >> report.md
