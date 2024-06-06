@@ -25,12 +25,65 @@ x_train,y_train,x_test,y_test = trn_arr[:,:-1],trn_arr[:,-1],tst_arr[:,:-1],tst_
 def model_trainer(x_train,y_train,x_test,y_test) -> Dict:
 
     scores = {}
-    models = { "Linear_Regression": LinearRegression(),
-                "K_Neighbors_Regressor": KNeighborsRegressor(n_neighbors=3),
-                "Random_Forest": RandomForestRegressor(max_depth=20,n_estimators=20,criterion="squared_error"),
-                "SVR": SVR(),
-                "Decision_Tree": DecisionTreeRegressor(criterion="poisson")}
-    
+    models = {
+        "Linear_Regression": LinearRegression(
+            fit_intercept=True, 
+            normalize=False, 
+            copy_X=True
+        ),
+        "K_Neighbors_Regressor": KNeighborsRegressor(
+            n_neighbors=5, 
+            weights='distance', 
+            algorithm='auto', 
+            leaf_size=30, 
+            p=2, 
+            metric='minkowski'
+        ),
+        "Random_Forest": RandomForestRegressor(
+            n_estimators=100, 
+            max_depth=None, 
+            min_samples_split=2, 
+            min_samples_leaf=1, 
+            min_weight_fraction_leaf=0.0, 
+            max_features='auto', 
+            max_leaf_nodes=None, 
+            min_impurity_decrease=0.0, 
+            bootstrap=True, 
+            oob_score=False, 
+            n_jobs=-1, 
+            random_state=None, 
+            verbose=0, 
+            warm_start=False, 
+            ccp_alpha=0.0, 
+            max_samples=None
+        ),
+        "SVR": SVR(
+            kernel='rbf', 
+            degree=3, 
+            gamma='scale', 
+            coef0=0.0, 
+            tol=1e-3, 
+            C=1.0, 
+            epsilon=0.1, 
+            shrinking=True, 
+            cache_size=200, 
+            verbose=False, 
+            max_iter=-1
+        ),
+        "Decision_Tree": DecisionTreeRegressor(
+            criterion='squared_error', 
+            splitter='best', 
+            max_depth=None, 
+            min_samples_split=2, 
+            min_samples_leaf=1, 
+            min_weight_fraction_leaf=0.0, 
+            max_features=None, 
+            random_state=None, 
+            max_leaf_nodes=None, 
+            min_impurity_decrease=0.0, 
+            ccp_alpha=0.0
+        )
+    }
     for model_name,model in models.items():
             model_fitter = model.fit(x_train,y_train)
             y_pred = model.predict(x_test)
