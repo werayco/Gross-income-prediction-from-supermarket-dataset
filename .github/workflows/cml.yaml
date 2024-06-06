@@ -23,13 +23,13 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Train model
+      - name: Train modelz
         run: |
           python model_train.py
 
       - name: Write CML report
         env:
-          GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }
+            REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           echo "## Training Results" > report.md
           cat results.txt >> report.md
