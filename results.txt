@@ -1,0 +1,1 @@
+the maximum accuracy is 0.9851260294820293 and the best model is K_Neighbors_Regressor 

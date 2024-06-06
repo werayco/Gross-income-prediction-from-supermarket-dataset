@@ -42,3 +42,8 @@ scores = model_trainer(x_train,y_train,x_test,y_test)
 
 with open("metrics.json","w") as output:
       json.dump(scores,output)
+ 
+max_acc = min(list(scores.values()))
+best_model = list(scores.keys())[list(scores.values()).index(max_acc)]
+with open("results.txt","w") as result:
+      result.write(f"the maximum accuracy is {max_acc} and the best model is {best_model} ")
