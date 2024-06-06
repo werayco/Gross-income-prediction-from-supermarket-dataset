@@ -36,7 +36,7 @@ jobs:
 
       - name: Write CML report
         env:
-          REPO_TOKEN: ${{ secrets.MY_TOKEN }}
+          my_own_token_01: ${{ secrets.MY_OWN_TOKEN_01 }}
         run: |
           echo "## Training Results" > report.md
           cat results.txt >> report.md
