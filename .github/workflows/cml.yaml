@@ -2,8 +2,8 @@ name: ML Workflow
 
 on: [push]
 
-permissions:
-  contents: write  # Grants write access to the repository contents
+# permissions:
+#   contents: write  # Grants write access to the repository contents
 
 jobs:
   run:
@@ -18,10 +18,10 @@ jobs:
         with:
           python-version: '3.8'
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '16'
+      # - name: Set up Node.js
+      #   uses: actions/setup-node@v3
+      #   with:
+      #     node-version: '16'
 
       - name: Install CML
         run: npm install -g @dvcorg/cml
@@ -36,7 +36,7 @@ jobs:
 
       - name: Write CML report
         env:
-          my_own_token_01: ${{ secrets.MY_OWN_TOKEN }}
+          my_own_token_01: ${{ secrets.RAY_TOKEN }}
         run: |
           echo "## Training Results" > report.md
           cat results.txt >> report.md
