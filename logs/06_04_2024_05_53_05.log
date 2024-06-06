@@ -1,0 +1,2 @@
+[2024-06-04 05:53:05,639] 28 root - INFO - The features of the project are ['BasePay', 'OtherPay', 'OvertimePay', 'TotalPay', 'Status'] and the target is TotalPayBenefits
+[2024-06-04 05:53:05,644] 36 root - INFO - Train and test CSVs successfully opened, proceeding to data cleaning

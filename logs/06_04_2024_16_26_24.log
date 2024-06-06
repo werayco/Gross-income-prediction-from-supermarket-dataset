@@ -1,0 +1,2 @@
+[2024-06-04 16:26:24,568] 52 root - INFO - the features of the project are ['Branch', 'City', 'Gender', 'Unit price', 'Tax 5%', 'gross margin percentage'] and the target is ['gross income']
+[2024-06-04 16:26:24,568] 25 root - INFO - train and test csv successfully opened, proceeding to data cleaning

@@ -1,0 +1,4 @@
+[2024-06-05 01:11:10,455] 57 root - INFO - The features of the project are ['Branch', 'City', 'Gender', 'Unit price', 'Tax 5%', 'gross margin percentage'] and the target is ['gross income']
+[2024-06-05 01:11:10,456] 21 root - INFO - Setting up data cleaning pipelines.
+[2024-06-05 01:11:10,635] 57 root - INFO - The features of the project are ['Branch', 'City', 'Gender', 'Unit price', 'Tax 5%', 'gross margin percentage'] and the target is ['gross income']
+[2024-06-05 01:11:10,635] 21 root - INFO - Setting up data cleaning pipelines.
