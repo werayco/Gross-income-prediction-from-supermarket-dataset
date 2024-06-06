@@ -18,11 +18,6 @@ jobs:
         with:
           python-version: '3.8'
 
-      # - name: Set up Node.js
-      #   uses: actions/setup-node@v3
-      #   with:
-      #     node-version: '16'
-
       - name: Install CML
         run: npm install -g @dvcorg/cml
 
@@ -36,8 +31,8 @@ jobs:
 
       - name: Write CML report
         env:
-          my_own_token_01: ${{ github.token }}
+          REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           echo "## Training Results" > report.md
           cat results.txt >> report.md
-          cml comment create report.md
+    
