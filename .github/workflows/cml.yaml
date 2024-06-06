@@ -36,8 +36,8 @@ jobs:
 
       - name: Write CML report
         env:
-          my_own_token_01: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          my_own_token_01: ${{ secrets.MY_OWN_TOKEN }}
         run: |
           echo "## Training Results" > report.md
           cat results.txt >> report.md
-          npx cml comment create report.md --token=$REPO_TOKEN
+          cml comment create report.md
