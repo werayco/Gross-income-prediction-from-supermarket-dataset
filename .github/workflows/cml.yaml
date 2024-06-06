@@ -33,4 +33,4 @@ jobs:
         run: |
           echo "## Training Results" > report.md
           cat results.txt >> report.md
-          cml-send-comment report.md
+          cml comment create report.md
