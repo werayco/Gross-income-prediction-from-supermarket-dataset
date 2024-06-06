@@ -16,7 +16,7 @@ jobs:
           python-version: '3.8'
 
       - name: Set up CML
-        uses: iterative/setup-cml@v1
+        uses: iterative/setup-cml@v2
 
       - name: Install dependencies
         run: |
@@ -33,4 +33,4 @@ jobs:
         run: |
           echo "## Training Results" > report.md
           cat results.txt >> report.md
-          cml comment create report.md
+          cml comment create --publish report.md
